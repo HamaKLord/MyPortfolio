@@ -1,0 +1,47 @@
+timestamp,text,predicted,actual,stress_level
+2025-01-08T01:46:21.570447,I want to kill myself,Low Stress,,30
+2025-01-08T01:48:28.691628,i want to kill myself please help me bro ,Low Stress,,30
+2025-01-08T01:51:12.466891,I need help because I fall in Love ,Low Stress,,30
+2025-01-08T01:51:23.262846,I need help because I fall in Love ,Low Stress,Could you enhance the model please,30
+2025-01-08T01:55:03.901783,I need help I can not feel good,Low Stress,,30
+2025-01-08T01:55:12.709439,I need help I can not feel good,Low Stress,Please make the models better,30
+2025-01-08T01:56:00.377446,Hi,Low Stress,,30
+2025-01-08T01:56:12.469543,Hi,Low Stress,Please Enhance the Model,30
+2025-01-08T02:11:34.765209,I want to kill myself ,High Stress,,80,0.3669013184444367,"Take time for self-care: try meditation, light exercise, or talking to someone you trust. Remember that stress is temporary and manageable with the right techniques."
+2025-01-08T02:11:52.040412,I want to kill myself ,High Stress,Please Enhance the models ,80,0.3669013184444367,"Take time for self-care: try meditation, light exercise, or talking to someone you trust. Remember that stress is temporary and manageable with the right techniques."
+2025-01-08T02:17:43.531126,How to kill myself I am so boring ,Low Stress,,30,0.340615974655245
+2025-01-08T02:20:30.688321,I want to kill myself ,High Stress,,80,0.3669013184444367
+2025-01-08T02:20:48.971120,I want to kill myself I am so boring from life,Low Stress,,30,0.34401937501125185
+2025-01-08T02:21:10.005345,I want to kill myself I am so boring from life also my love cheated on me ,Low Stress,,30,0.34349392345131746
+2025-01-08T02:21:20.404554,I am going to kill myself ,High Stress,,80,0.3679193067763296
+2025-01-08T02:22:01.260873,I want to kill myself ,High Stress,,80,0.95
+2025-01-08T02:22:29.531380,I want to kill my best friend he cheated on me ,High Stress,,80,0.65
+2025-01-08T02:22:44.451750,I fall in love ,Low Stress,,30,0.65
+2025-01-08T02:22:54.443861,kill myself ?,High Stress,,80,0.95
+2025-01-08T02:24:44.080243,kill myself ?,High Stress,,80,0.95
+2025-01-08T02:25:10.573110,kill myself ?,High Stress,Please Traind The Mdoel,80,0.95
+2025-01-08T02:27:00.751938,Feeling anxious,Low Stress,,30,0.65
+2025-01-08T02:27:15.342577,Feeling anxious,Low Stress,Can you help me ,30,0.65
+2025-01-09T12:00:47.774210,I can not feel good I am so lonely I do not know why no one can understand me ,High Stress,,80,0.85
+2025-01-16T13:52:49.691819,I want to kill myself,High Stress,,80,0.95
+2025-01-18T01:18:02.206764,i think that after i had spent some time investigating the surroundings and things i started to feel more curious about other people,High Stress,,80,0.65
+2025-01-18T01:18:36.865119,,High Stress,Please Make The Model Better!,80,0.65
+2025-01-18T01:19:08.488973,I want to kill myself ,High Stress,,80,0.95
+2025-01-18T01:19:17.021404,I want to kill myself ,High Stress,Please make it better,80,0.95
+2025-01-18T01:21:19.276337,srhhdg,Low Stress,,30,0.65
+2025-01-18T01:21:22.903195,srhhdg,Low Stress,adgwr,30,0.65
+2025-01-18T01:22:52.646792,"adbwkef
+
+2025-01-18T01:24:37.065168,My girlfriend cheated on my loyalty I trusted her but she was only a liar nothing more No I do not know what to do I feel so fucking bad ,High Stress,,80,0.65
+2025-01-18T01:27:00.472562,My girlfriend cheated on my loyalty I trusted her but she was only a liar nothing more No I do not know what to do I feel so fucking bad ,High Stress,Please I am using this model a lot so try to train the model better ,80,0.65
+2025-01-18T01:45:47.471286,My friend told me if you get marry I will buy you a furniture ,High Stress,,80,0.65
+2025-01-18T01:46:47.107096,I want to kill darbaz,High Stress,,80,0.65
+2025-01-18T01:46:48.003963,I want to kill darbaz,High Stress,,80,0.65
+2025-01-18T01:47:03.314866,i want to kill myself ,High Stress,,80,0.95
+2025-01-18T19:09:12.133560,I want to kill myself ,High Stress,,80,0.95
+2025-01-18T19:09:31.060721,I want to kill myself ,High Stress,Please Enhance the model ,80,0.95
+2025-01-18T19:10:00.476414,I want to kill myself ,High Stress,,80,0.95
+2025-01-18T19:10:38.642016,I am falling love ,Low Stress,,30,0.65
+2025-01-18T19:53:34.131000,I want to kill myself ,High Stress,,80,0.95
+2025-01-18T19:54:35.137347,I knew a new friend which is very good for me ,High Stress,,80,0.65
+2025-01-18T19:55:21.281411,I knew a new friend which is very good for me ,High Stress,please enhance the model ,80,0.65
