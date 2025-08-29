@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOSTTO - Quotation Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <h1>DOSTTO</h1>
+                <span>Quotation Management System</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome-section">
+                <h2>Welcome to DOSTTO QMS</h2>
+                <p>Streamline your quotation process with our comprehensive management system</p>
+            </div>
+
+            <div class="user-role-cards">
+                <div class="role-card" onclick="navigateTo('customer-request.html')">
+                    <div class="role-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Customer</h3>
+                    <p>Request quotations for our services</p>
+                    <button class="role-btn">Request Quotation</button>
+                </div>
+
+                <div class="role-card" onclick="navigateTo('employee-dashboard.html')">
+                    <div class="role-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Employee</h3>
+                    <p>Create and manage quotations</p>
+                    <button class="role-btn">Employee Login</button>
+                </div>
+
+                <div class="role-card" onclick="navigateTo('manager-dashboard.html')">
+                    <div class="role-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Manager</h3>
+                    <p>Approve and review quotations</p>
+                    <button class="role-btn">Manager Login</button>
+                </div>
+
+                <div class="role-card" onclick="navigateTo('admin-dashboard.html')">
+                    <div class="role-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Admin</h3>
+                    <p>System administration and reports</p>
+                    <button class="role-btn">Admin Login</button>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h3>System Features</h3>
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <h4>Fast Processing</h4>
+                        <p>Complete quotations within 3 working days</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Secure Access</h4>
+                        <p>Role-based access control for data protection</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Real-time Reports</h4>
+                        <p>Generate comprehensive reports instantly</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Mobile Friendly</h4>
+                        <p>Access from any device, anywhere</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>&copy; 2025 DOSTTO Quotation Management System. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <a href="tel:+96407718126767" style="color: white; text-decoration: none; opacity: 0.8;">
+                        <i class="fas fa-phone"></i> +964 (0) 771 812 6767
+                    </a>
+                    <a href="mailto:mkqiu220387@uniq.edu.iq" style="color: white; text-decoration: none; opacity: 0.8;">
+                        <i class="fas fa-envelope"></i> mkqiu220387@uniq.edu.iq
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - DOSTTO QMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <h1>DOSTTO</h1>
+                <span>Employee Dashboard</span>
+            </div>
+            <div class="dashboard-nav">
+                <button class="nav-btn" onclick="navigateTo('index.html')">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-btn" onclick="showCreateQuotationForm()">
+                    <i class="fas fa-plus"></i> New Quotation
+                </button>
+                <button class="nav-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="dashboard fade-in">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">
+                        <i class="fas fa-user-tie"></i> Employee Dashboard
+                    </h2>
+                    <div class="user-info">
+                        <span>Welcome, Employee</span>
+                        <small>Last login: Today at 9:00 AM</small>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <!-- Stats will be populated by JavaScript -->
+                </div>
+
+                <!-- Quick Actions -->
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="margin-bottom: 1rem; color: #2c3e50;">
+                        <i class="fas fa-bolt"></i> Quick Actions
+                    </h3>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="nav-btn" onclick="showCreateQuotationForm()">
+                            <i class="fas fa-plus"></i> Create New Quotation
+                        </button>
+                        <button class="nav-btn" onclick="viewPendingRequests()">
+                            <i class="fas fa-clock"></i> View Pending Requests
+                        </button>
+                        <button class="nav-btn" onclick="exportQuotations()">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quotations Table -->
+                <div>
+                    <h3 style="margin-bottom: 1rem; color: #2c3e50;">
+                        <i class="fas fa-list"></i> My Quotations
+                    </h3>
+                    <div class="table-container">
+                        <table class="data-table quotations-table">
+                            <thead>
+                                <tr>
+                                    <th>Quotation ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Service Type</th>
+                                    <th>Total Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Quotation Form (Hidden by default) -->
+            <div id="createQuotationForm" class="form-container" style="display: none;">
+                <div class="dashboard-header">
+                    <h2 class="form-title">Create New Quotation</h2>
+                    <button class="nav-btn" onclick="hideCreateQuotationForm()">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+
+                <form id="quotationForm">
+                    <div class="form-group">
+                        <label for="customerName" class="form-label">
+                            <i class="fas fa-user"></i> Customer Name *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="customerName" 
+                            name="customerName" 
+                            class="form-input" 
+                            placeholder="Enter customer name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerEmail" class="form-label">
+                            <i class="fas fa-envelope"></i> Customer Email *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="customerEmail" 
+                            name="customerEmail" 
+                            class="form-input" 
+                            placeholder="Enter customer email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType" class="form-label">
+                            <i class="fas fa-briefcase"></i> Service Type *
+                        </label>
+                        <select id="serviceType" name="serviceType" class="form-select" required>
+                            <option value="">Select service type</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Education">Education</option>
+                            <option value="Oil Refining">Oil Refining</option>
+                            <option value="Industry">Industry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="form-label">
+                            <i class="fas fa-file-alt"></i> Service Description *
+                        </label>
+                        <textarea 
+                            id="description" 
+                            name="description" 
+                            class="form-textarea" 
+                            placeholder="Describe the services to be provided..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="unitPrice" class="form-label">
+                            <i class="fas fa-dollar-sign"></i> Unit Price (IQD) *
+                        </label>
+                        <input 
+                            type="number" 
+                            id="unitPrice" 
+                            name="unitPrice" 
+                            class="form-input" 
+                            placeholder="0.00"
+                            step="0.01"
+                            min="0"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity" class="form-label">
+                            <i class="fas fa-calculator"></i> Quantity *
+                        </label>
+                        <input 
+                            type="number" 
+                            id="quantity" 
+                            name="quantity" 
+                            class="form-input" 
+                            placeholder="1"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalAmount" class="form-label">
+                            <i class="fas fa-calculator"></i> Total Amount (IQD)
+                        </label>
+                        <input 
+                            type="text" 
+                            id="totalAmount" 
+                            name="totalAmount" 
+                            class="form-input" 
+                            readonly
+                            style="background-color: #f8f9fa;"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes" class="form-label">
+                            <i class="fas fa-sticky-note"></i> Additional Notes
+                        </label>
+                        <textarea 
+                            id="notes" 
+                            name="notes" 
+                            class="form-textarea" 
+                            placeholder="Any additional notes or special requirements..."
+                            rows="3"
+                        ></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="submit" class="form-btn" style="flex: 1;">
+                            <i class="fas fa-save"></i> Save Quotation
+                        </button>
+                        <button type="button" class="form-btn" onclick="hideCreateQuotationForm()" style="flex: 1; background: #6c757d;">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>&copy; 2025 DOSTTO Quotation Management System. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <a href="tel:+96407718126767" style="color: white; text-decoration: none; opacity: 0.8;">
+                        <i class="fas fa-phone"></i> +964 (0) 771 812 6767
+                    </a>
+                    <a href="mailto:mkqiu220387@uniq.edu.iq" style="color: white; text-decoration: none; opacity: 0.8;">
+                        <i class="fas fa-envelope"></i> mkqiu220387@uniq.edu.iq
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Additional JavaScript for employee dashboard
+        function showCreateQuotationForm() {
+            document.getElementById('createQuotationForm').style.display = 'block';
+            document.querySelector('.dashboard').style.display = 'none';
+        }
+
+        function hideCreateQuotationForm() {
+            document.getElementById('createQuotationForm').style.display = 'none';
+            document.querySelector('.dashboard').style.display = 'block';
+        }
+
+        function viewPendingRequests() {
+            showMessage('Loading pending requests...', 'warning');
+            // This would typically load pending customer requests
+        }
+
+        function exportQuotations() {
+            showMessage('Exporting quotations...', 'warning');
+            setTimeout(() => {
+                showMessage('Quotations exported successfully!', 'success');
+            }, 2000);
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                navigateTo('index.html');
+            }
+        }
+
+        // Auto-calculate total amount
+        document.addEventListener('DOMContentLoaded', function() {
+            const unitPriceInput = document.getElementById('unitPrice');
+            const quantityInput = document.getElementById('quantity');
+            const totalAmountInput = document.getElementById('totalAmount');
+
+            function calculateTotal() {
+                const unitPrice = parseFloat(unitPriceInput.value) || 0;
+                const quantity = parseInt(quantityInput.value) || 0;
+                const total = unitPrice * quantity;
+                totalAmountInput.value = total.toFixed(2);
+            }
+
+            if (unitPriceInput && quantityInput) {
+                unitPriceInput.addEventListener('input', calculateTotal);
+                quantityInput.addEventListener('input', calculateTotal);
+            }
+
+            // Handle quotation form submission
+            const quotationForm = document.getElementById('quotationForm');
+            if (quotationForm) {
+                quotationForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formData = new FormData(event.target);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Create new quotation
+                    const quotations = JSON.parse(localStorage.getItem('quotations') || '[]');
+                    const newQuotation = {
+                        id: Date.now(),
+                        ...data,
+                        status: 'pending',
+                        createdDate: new Date().toISOString(),
+                        employeeId: 'EMP001'
+                    };
+                    
+                    quotations.push(newQuotation);
+                    localStorage.setItem('quotations', JSON.stringify(quotations));
+                    
+                    showMessage('Quotation created successfully!', 'success');
+                    hideCreateQuotationForm();
+                    loadEmployeeDashboard();
+                    
+                    // Reset form
+                    event.target.reset();
+                    totalAmountInput.value = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - DOSTTO QMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <h1>DOSTTO</h1>
+                <span>Admin Dashboard</span>
+            </div>
+            <div class="dashboard-nav">
+                <button class="nav-btn" onclick="navigateTo('index.html')">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-btn" onclick="showUserManagement()">
+                    <i class="fas fa-users"></i> Users
+                </button>
+                <button class="nav-btn" onclick="showSystemSettings()">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+                <button class="nav-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="dashboard fade-in">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">
+                        <i class="fas fa-user-shield"></i> Admin Dashboard
+                    </h2>
+                    <div class="user-info">
+                        <span>Welcome, Administrator</span>
+                        <small>Last login: Today at 8:00 AM</small>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <!-- Stats will be populated by JavaScript -->
+                </div>
+
+                <!-- Quick Actions -->
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="margin-bottom: 1rem; color: #2c3e50;">
+                        <i class="fas fa-bolt"></i> Quick Actions
+                    </h3>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="nav-btn" onclick="showUserManagement()">
+                            <i class="fas fa-users"></i> Manage Users
+                        </button>
+                        <button class="nav-btn" onclick="showSystemSettings()">
+                            <i class="fas fa-cog"></i> System Settings
+                        </button>
+                        <button class="nav-btn" onclick="showAdvancedReports()">
+                            <i class="fas fa-chart-line"></i> Advanced Reports
+                        </button>
+                        <button class="nav-btn" onclick="backupSystem()">
+                            <i class="fas fa-database"></i> Backup System
+                        </button>
+                    </div>
+                </div>
+
+                <!-- All Quotations Table -->
+                <div>
+                    <h3 style="margin-bottom: 1rem; color: #2c3e50;">
+                        <i class="fas fa-list"></i> All Quotations
+                    </h3>
+                    <div class="table-container">
+                        <table class="data-table all-quotations-table">
+                            <thead>
+                                <tr>
+                                    <th>Quotation ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Customer Email</th>
+                                    <th>Service Type</th>
+                                    <th>Total Amount</th>
+                                    <th>Status</th>
+                                    <th>Created Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Management Form (Hidden by default) -->
+            <div id="userManagementForm" class="form-container" style="display: none;">
+                <div class="dashboard-header">
+                    <h2 class="form-title">User Management</h2>
+                    <button class="nav-btn" onclick="hideUserManagement()">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+
+                <form id="addUserForm">
+                    <div class="form-group">
+                        <label for="userName" class="form-label">
+                            <i class="fas fa-user"></i> Full Name *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="userName" 
+                            name="userName" 
+                            class="form-input" 
+                            placeholder="Enter full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail" class="form-label">
+                            <i class="fas fa-envelope"></i> Email Address *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="userEmail" 
+                            name="userEmail" 
+                            class="form-input" 
+                            placeholder="Enter email address"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userRole" class="form-label">
+                            <i class="fas fa-user-tag"></i> Role *
+                        </label>
+                        <select id="userRole" name="userRole" class="form-select" required>
+                            <option value="">Select role</option>
+                            <option value="employee">Employee</option>
+                            <option value="manager">Manager</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userDepartment" class="form-label">
+                            <i class="fas fa-building"></i> Department
+                        </label>
+                        <select id="userDepartment" name="userDepartment" class="form-select">
+                            <option value="">Select department</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Education">Education</option>
+                            <option value="Oil Refining">Oil Refining</option>
+                            <option value="Industry">Industry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userPassword" class="form-label">
+                            <i class="fas fa-lock"></i> Initial Password *
+                        </label>
+                        <input 
+                            type="password" 
+                            id="userPassword" 
+                            name="userPassword" 
+                            class="form-input" 
+                            placeholder="Enter initial password"
+                            required
+                        >
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="submit" class="form-btn" style="flex: 1;">
+                            <i class="fas fa-user-plus"></i> Add User
+                        </button>
+                        <button type="button" class="form-btn" onclick="hideUserManagement()" style="flex: 1; background: #6c757d;">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Users List -->
+                <div style="margin-top: 2rem;">
+                    <h3>Current Users</h3>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Department</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>john@dostto.com</td>
+                                    <td>Employee</td>
+                                    <td>Housing</td>
+                                    <td><span class="status-badge status-approved">Active</span></td>
+                                    <td>
+                                        <button class="action-btn btn-edit">Edit</button>
+                                        <button class="action-btn btn-reject">Deactivate</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>jane@dostto.com</td>
+                                    <td>Manager</td>
+                                    <td>Education</td>
+                                    <td><span class="status-badge status-approved">Active</span></td>
+                                    <td>
+                                        <button class="action-btn btn-edit">Edit</button>
+                                        <button class="action-btn btn-reject">Deactivate</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Settings Form (Hidden by default) -->
+            <div id="systemSettingsForm" class="form-container" style="display: none;">
+                <div class="dashboard-header">
+                    <h2 class="form-title">System Settings</h2>
+                    <button class="nav-btn" onclick="hideSystemSettings()">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+
+                <form id="systemSettingsForm">
+                    <div class="form-group">
+                        <label for="companyName" class="form-label">
+                            <i class="fas fa-building"></i> Company Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="companyName" 
+                            name="companyName" 
+                            class="form-input" 
+                            value="DOSTTO"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quotationValidity" class="form-label">
+                            <i class="fas fa-clock"></i> Quotation Validity (Days)
+                        </label>
+                        <input 
+                            type="number" 
+                            id="quotationValidity" 
+                            name="quotationValidity" 
+                            class="form-input" 
+                            value="30"
+                            min="1"
+                            max="365"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="autoBackup" class="form-label">
+                            <i class="fas fa-database"></i> Auto Backup Frequency
+                        </label>
+                        <select id="autoBackup" name="autoBackup" class="form-select">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailNotifications" class="form-label">
+                            <i class="fas fa-bell"></i> Email Notifications
+                        </label>
+                        <select id="emailNotifications" name="emailNotifications" class="form-select">
+                            <option value="enabled">Enabled</option>
+                            <option value="disabled">Disabled</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="submit" class="form-btn" style="flex: 1;">
+                            <i class="fas fa-save"></i> Save Settings
+                        </button>
+                        <button type="button" class="form-btn" onclick="hideSystemSettings()" style="flex: 1; background: #6c757d;">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Advanced Reports Form (Hidden by default) -->
+            <div id="advancedReportsForm" class="form-container" style="display: none;">
+                <div class="dashboard-header">
+                    <h2 class="form-title">Advanced Reports</h2>
+                    <button class="nav-btn" onclick="hideAdvancedReports()">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+
+                <form id="advancedReportForm">
+                    <div class="form-group">
+                        <label for="reportType" class="form-label">
+                            <i class="fas fa-chart-bar"></i> Report Type *
+                        </label>
+                        <select id="reportType" name="reportType" class="form-select" required>
+                            <option value="">Select report type</option>
+                            <option value="financial">Financial Summary</option>
+                            <option value="performance">Performance Analysis</option>
+                            <option value="department">Department Comparison</option>
+                            <option value="trends">Trend Analysis</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateFrom" class="form-label">
+                            <i class="fas fa-calendar"></i> From Date *
+                        </label>
+                        <input 
+                            type="date" 
+                            id="dateFrom" 
+                            name="dateFrom" 
+                            class="form-input" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateTo" class="form-label">
+                            <i class="fas fa-calendar"></i> To Date *
+                        </label>
+                        <input 
+                            type="date" 
+                            id="dateTo" 
+                            name="dateTo" 
+                            class="form-input" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="format" class="form-label">
+                            <i class="fas fa-file"></i> Export Format
+                        </label>
+                        <select id="format" name="format" class="form-select">
+                            <option value="pdf">PDF</option>
+                            <option value="excel">Excel</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="submit" class="form-btn" style="flex: 1;">
+                            <i class="fas fa-chart-line"></i> Generate Report
+                        </button>
+                        <button type="button" class="form-btn" onclick="hideAdvancedReports()" style="flex: 1; background: #6c757d;">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Report Results -->
+                <div id="advancedReportResults" style="margin-top: 2rem;">
+                    <!-- Advanced report results will be displayed here -->
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>&copy; 2025 DOSTTO Quotation Management System. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <a href="tel:+96407718126767" style="color: white; text-decoration: none; opacity: 0.8;">
+                        <i class="fas fa-phone"></i> +964 (0) 771 812 6767
+                    </a>
+                    <a href="mailto:mkqiu220387@uniq.edu.iq" style="color: white; text-decoration: none; opacity: 0.8;">
+                        <i class="fas fa-envelope"></i> mkqiu220387@uniq.edu.iq
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Additional JavaScript for admin dashboard
+        function showUserManagement() {
+            document.getElementById('userManagementForm').style.display = 'block';
+            document.querySelector('.dashboard').style.display = 'none';
+        }
+
+        function hideUserManagement() {
+            document.getElementById('userManagementForm').style.display = 'none';
+            document.querySelector('.dashboard').style.display = 'block';
+        }
+
+        function showSystemSettings() {
+            document.getElementById('systemSettingsForm').style.display = 'block';
+            document.querySelector('.dashboard').style.display = 'none';
+        }
+
+        function hideSystemSettings() {
+            document.getElementById('systemSettingsForm').style.display = 'none';
+            document.querySelector('.dashboard').style.display = 'block';
+        }
+
+        function showAdvancedReports() {
+            document.getElementById('advancedReportsForm').style.display = 'block';
+            document.querySelector('.dashboard').style.display = 'none';
+        }
+
+        function hideAdvancedReports() {
+            document.getElementById('advancedReportsForm').style.display = 'none';
+            document.querySelector('.dashboard').style.display = 'block';
+        }
+
+        function backupSystem() {
+            showMessage('Creating system backup...', 'warning');
+            setTimeout(() => {
+                showMessage('System backup completed successfully!', 'success');
+            }, 3000);
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                navigateTo('index.html');
+            }
+        }
+
+        // Handle form submissions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add User Form
+            const addUserForm = document.getElementById('addUserForm');
+            if (addUserForm) {
+                addUserForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formData = new FormData(event.target);
+                    const data = Object.fromEntries(formData);
+                    
+                    showMessage('User added successfully!', 'success');
+                    event.target.reset();
+                });
+            }
+
+            // System Settings Form
+            const systemSettingsForm = document.getElementById('systemSettingsForm');
+            if (systemSettingsForm) {
+                systemSettingsForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formData = new FormData(event.target);
+                    const data = Object.fromEntries(formData);
+                    
+                    showMessage('System settings saved successfully!', 'success');
+                });
+            }
+
+            // Advanced Report Form
+            const advancedReportForm = document.getElementById('advancedReportForm');
+            if (advancedReportForm) {
+                advancedReportForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formData = new FormData(event.target);
+                    const data = Object.fromEntries(formData);
+                    
+                    showMessage('Generating advanced report...', 'warning');
+                    setTimeout(() => {
+                        showMessage('Advanced report generated successfully!', 'success');
+                    }, 2000);
+                });
+            }
+
+            // Set default dates for report forms
+            const today = new Date();
+            const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+            
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach((input, index) => {
+                if (index === 0) {
+                    input.value = lastMonth.toISOString().split('T')[0];
+                } else {
+                    input.value = today.toISOString().split('T')[0];
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

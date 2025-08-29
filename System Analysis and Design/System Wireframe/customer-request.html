@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Quotation - DOSTTO QMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <h1>DOSTTO</h1>
+                <span>Quotation Management System</span>
+            </div>
+            <button class="nav-btn" onclick="navigateTo('index.html')">
+                <i class="fas fa-home"></i> Back to Home
+            </button>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container fade-in">
+                <h2 class="form-title">Request Quotation</h2>
+                <p style="text-align: center; color: #7f8c8d; margin-bottom: 2rem;">
+                    Please fill out the form below to request a quotation for our services. 
+                    We'll get back to you within 3 working days.
+                </p>
+
+                <form id="customerRequestForm">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">
+                            <i class="fas fa-user"></i> Full Name *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            class="form-input" 
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i> Email Address *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="Enter your email address"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            <i class="fas fa-phone"></i> Phone Number *
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            class="form-input" 
+                            placeholder="Enter your phone number"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType" class="form-label">
+                            <i class="fas fa-briefcase"></i> Service Type *
+                        </label>
+                        <select id="serviceType" name="serviceType" class="form-select" required>
+                            <option value="">Select a service type</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Education">Education</option>
+                            <option value="Oil Refining">Oil Refining</option>
+                            <option value="Industry">Industry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="form-label">
+                            <i class="fas fa-file-alt"></i> Description of Request
+                        </label>
+                        <textarea 
+                            id="description" 
+                            name="description" 
+                            class="form-textarea" 
+                            placeholder="Please describe your requirements in detail..."
+                            rows="4"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urgency" class="form-label">
+                            <i class="fas fa-clock"></i> Urgency Level
+                        </label>
+                        <select id="urgency" name="urgency" class="form-select">
+                            <option value="normal">Normal (3-5 working days)</option>
+                            <option value="urgent">Urgent (1-2 working days)</option>
+                            <option value="very-urgent">Very Urgent (Same day)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget" class="form-label">
+                            <i class="fas fa-dollar-sign"></i> Budget Range (Optional)
+                        </label>
+                        <select id="budget" name="budget" class="form-select">
+                            <option value="">Select budget range</option>
+                            <option value="under-10k">Under IQD 10,000</option>
+                            <option value="10k-50k">IQD 10,000 - IQD 50,000</option>
+                            <option value="50k-100k">IQD 50,000 - IQD 100,000</option>
+                            <option value="100k-500k">IQD 100,000 - IQD 500,000</option>
+                            <option value="over-500k">Over IQD 500,000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-info-circle"></i> Additional Information
+                        </label>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; font-size: 0.9rem; color: #6c757d;">
+                            <p><strong>What happens next?</strong></p>
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>We'll review your request within 24 hours</li>
+                                <li>Our team will prepare a detailed quotation</li>
+                                <li>You'll receive the quotation via email</li>
+                                <li>We're available for any questions or clarifications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="form-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Request
+                    </button>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e0e0e0;">
+                    <p style="color: #7f8c8d; font-size: 0.9rem;">
+                        Need immediate assistance? 
+                        <a href="tel:+96407718126767" style="color: #3498db; text-decoration: none;">
+                            <i class="fas fa-phone"></i> Call us at +964 (0) 771 812 6767
+                        </a>
+                    </p>
+                    <p style="color: #7f8c8d; font-size: 0.9rem; margin-top: 0.5rem;">
+                        <a href="mailto:mkqiu220387@uniq.edu.iq" style="color: #3498db; text-decoration: none;">
+                            <i class="fas fa-envelope"></i> Email: mkqiu220387@uniq.edu.iq
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 DOSTTO Quotation Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
