@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1735341997 source:c:\users\hama_\desktop\qiu-journey\cns study\stage 2\a- stage 2 - semester i (second)\operating system (os)\project&assignment\project\cpp\pagereplacement\page_replacement.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
